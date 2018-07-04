@@ -1,0 +1,28 @@
+{
+  "name": "houser-js-toolbox",
+  "version": "0.0.1",
+  "description": "My javascript toolbox, you can say it is a collection of wheel.",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "test",
+    "compile": "npx babel src --out-dir lib"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Houserqu/houser-js-toolbox.git"
+  },
+  "keywords": [
+    "toolbox",
+    "js"
+  ],
+  "author": "houserqu",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-env": "^1.7.0"
+  }
+}
