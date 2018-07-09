@@ -8,7 +8,8 @@
   },
   "scripts": {
     "test": "test",
-    "compile": "npx babel src --out-dir lib"
+    "compile": "npx babel src --out-dir lib",
+    "build": "webpack --config webpack.config.js"
   },
   "repository": {
     "type": "git",
@@ -23,6 +24,8 @@
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-polyfill": "^6.26.0",
-    "babel-preset-env": "^1.7.0"
+    "babel-preset-env": "^1.7.0",
+    "webpack": "^4.15.1",
+    "webpack-cli": "^3.0.8"
   }
 }

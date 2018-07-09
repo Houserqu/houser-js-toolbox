@@ -1,4 +1,4 @@
-import queryJson from './src/queryJson';
+import queryJson from './queryJson';
 
 var HTool = {};
 
