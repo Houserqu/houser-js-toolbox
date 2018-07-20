@@ -5,6 +5,8 @@ My javascript toolbox, you can say it is a collection of wheel.
 
 :heavy_check_mark: json to url param string
 
+:heavy_check_mark: delete array item
+
 :heavy_multiplication_x: json deep copy
 
 ## Development
