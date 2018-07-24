@@ -3,11 +3,27 @@ My javascript toolbox, you can say it is a collection of wheel.
 
 ## Progress
 
-:heavy_check_mark: json to url param string
+#### :heavy_check_mark: queryJson
 
-:heavy_check_mark: delete array item
+json to url param string
 
-:heavy_multiplication_x: json deep copy
+将json对象转换urlencode格式
+
+#### :heavy_check_mark: array.del
+
+delete object array item
+
+删除对象数组的指定项
+
+#### :heavy_check_mark: tree.build
+
+build tree by record
+
+根据行记录构建对象树
+
+#### :heavy_multiplication_x: deepCopy
+
+json deep copy
 
 ## Development
 
