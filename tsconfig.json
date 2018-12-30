@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "removeComments": true,
+    "outDir": "./build",
+    "target": "es5",
+    "experimentalDecorators": true,     // 启用装饰器
+    "emitDecoratorMetadata": true,
+    "listFiles": true,
+    "allowJs": true,
+    "downlevelIteration": true,
+    "lib": [ //typescript 语法检测支持的版本库
+      "es6",
+      "dom"
+    ]
+  },
+  "include": ["lib/**/*", "demo/**/*"],
+  "exclude": ["node_modules", "**/*.spec.ts"],
+}

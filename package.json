@@ -8,8 +8,11 @@
   },
   "scripts": {
     "test": "test",
-    "compile": "npx babel src --out-dir lib",
-    "build": "webpack --config webpack.config.js"
+    "start": "nodemon --ext ts --watch lib --exec \"npm run clean && npm run build:ts && npm run server\"",
+    "server": "cross-env NODE_ENV=development node ./build/demo/index.js",
+    "clean": "rm -rf ./build",
+    "build:webpack": "webpack --config webpack.config.js",
+    "build:ts": "tsc"
   },
   "repository": {
     "type": "git",
@@ -25,7 +28,9 @@
     "babel-cli": "^6.26.0",
     "babel-polyfill": "^6.26.0",
     "babel-preset-env": "^1.7.0",
+    "typescript": "^3.2.2",
     "webpack": "^4.15.1",
-    "webpack-cli": "^3.0.8"
+    "webpack-cli": "^3.0.8",
+    "nodemon": "^1.18.9"
   }
 }
