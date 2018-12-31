@@ -1,5 +1,18 @@
 # houser-js-toolbox
+
 My javascript toolbox, you can say it is a collection of wheel.
+
+## Development
+
+```js
+npm start // 监听文件改动自动编译成 es5
+
+npm run build:ts // 编译成 es5
+
+npm run build:umd // 编译成单个文件
+
+npm run clean //删除构建目录
+```
 
 ## Progress
 
@@ -29,9 +42,9 @@ json deep copy
 
 ### 目录说明
 
-src：es6编写的源代码
-lib: src目录下通过babel转换生成的es5代码
-build：webpack打包生成的单个js文件
+src：typescript 编写的源代码
+lib: src 目录下通过 tsc 转换生成的es5代码
+dist：rollup 打包生成的单个js文件
 test：测试用例
 
 ### compile
