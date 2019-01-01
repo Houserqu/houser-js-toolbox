@@ -1,5 +1,3 @@
-import data from  './data.json';
-
 /**
  * 节点构造方法
  * @param {Int} id 节点id

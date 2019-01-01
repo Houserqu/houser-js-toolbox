@@ -2,14 +2,16 @@
   "name": "houser-js-toolbox",
   "version": "0.0.1",
   "description": "My javascript toolbox, you can say it is a collection of wheel.",
-  "main": "index.js",
+  "main": "./build/index.js",
   "directories": {
     "lib": "lib"
   },
   "scripts": {
     "test": "test",
-    "compile": "npx babel src --out-dir lib",
-    "build": "webpack --config webpack.config.js"
+    "start": "nodemon --ext ts --watch src --exec \"npm run clean && npm run build:ts\"",
+    "clean": "rm -rf ./lib",
+    "build:ts": "tsc",
+    "build:umd": "tsc --outFile ./dist/houser-tool.js --module amd"
   },
   "repository": {
     "type": "git",
@@ -22,10 +24,14 @@
   "author": "houserqu",
   "license": "MIT",
   "devDependencies": {
+    "awesome-typescript-loader": "^5.2.1",
     "babel-cli": "^6.26.0",
     "babel-polyfill": "^6.26.0",
     "babel-preset-env": "^1.7.0",
-    "webpack": "^4.15.1",
-    "webpack-cli": "^3.0.8"
+    "nodemon": "^1.18.9",
+    "rollup": "^1.0.0",
+    "rollup-plugin-typescript2": "^0.18.1",
+    "ts-loader": "^5.3.2",
+    "typescript": "^3.2.2"
   }
 }

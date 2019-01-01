@@ -1,0 +1,20 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "removeComments": true,
+    "outDir": "./lib",
+    "target": "es5",
+    "experimentalDecorators": true,     // 启用装饰器
+    "emitDecoratorMetadata": true,
+    "listFiles": true,
+    "allowJs": true,
+    "downlevelIteration": true,
+    "allowSyntheticDefaultImports": true, //允许从没有设置默认导出的模块中默认导入。这并不影响代码的显示，仅为了类型检查。
+    "lib": [ //typescript 语法检测支持的版本库
+      "es6",
+      "dom"
+    ]
+  },
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", "**/*.spec.ts"],
+}
