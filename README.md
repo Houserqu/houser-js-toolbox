@@ -16,27 +16,31 @@ npm run clean //删除构建目录
 
 ## Progress
 
-#### :heavy_check_mark: queryJson
+#### :white_check_mark: queryJson
 
 json to url param string
 
 将json对象转换urlencode格式
 
-#### :heavy_check_mark: array.del
+#### :white_check_mark: array.del
 
 delete object array item
 
 删除对象数组的指定项
 
-#### :heavy_check_mark: tree.build
+#### :white_check_mark: tree.build
 
 build tree by record
 
 根据行记录构建对象树
 
-#### :heavy_multiplication_x: deepCopy
+#### :white_circle: deepCopy
 
 json deep copy
+
+#### :white_circle: getUrlQuery
+
+获取 url 参数
 
 ## Development
 
