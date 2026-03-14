@@ -1,68 +1,73 @@
-# houser-js-toolbox
+# React + TypeScript + Vite
 
-My javascript toolbox, you can say it is a collection of wheel.
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-## Development
+Currently, two official plugins are available:
+
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+
+## React Compiler
+
+The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+
+## Expanding the ESLint configuration
+
+If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
 
 ```js
-npm start // 监听文件改动自动编译成 es5
+export default defineConfig([
+  globalIgnores(['dist']),
+  {
+    files: ['**/*.{ts,tsx}'],
+    extends: [
+      // Other configs...
 
-npm run build:ts // 编译成 es5
+      // Remove tseslint.configs.recommended and replace with this
+      tseslint.configs.recommendedTypeChecked,
+      // Alternatively, use this for stricter rules
+      tseslint.configs.strictTypeChecked,
+      // Optionally, add this for stylistic rules
+      tseslint.configs.stylisticTypeChecked,
 
-npm run build:umd // 编译成单个文件
-
-npm run clean //删除构建目录
+      // Other configs...
+    ],
+    languageOptions: {
+      parserOptions: {
+        project: ['./tsconfig.node.json', './tsconfig.app.json'],
+        tsconfigRootDir: import.meta.dirname,
+      },
+      // other options...
+    },
+  },
+])
 ```
 
-## Progress
+You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
 
-#### :white_check_mark: queryJson
+```js
+// eslint.config.js
+import reactX from 'eslint-plugin-react-x'
+import reactDom from 'eslint-plugin-react-dom'
 
-json to url param string
-
-将json对象转换urlencode格式
-
-#### :white_check_mark: array.del
-
-delete object array item
-
-删除对象数组的指定项
-
-#### :white_check_mark: tree.build
-
-build tree by record
-
-根据行记录构建对象树
-
-#### :white_circle: deepCopy
-
-json deep copy
-
-#### :white_circle: getUrlQuery
-
-获取 url 参数
-
-## Development
-
-### 目录说明
-
-src：typescript 编写的源代码
-lib: src 目录下通过 tsc 转换生成的es5代码
-dist：rollup 打包生成的单个js文件
-test：测试用例
-
-### compile
-
-将src目录下的es6源文件转换成es5，放到lib目录中
-
-```bash
-npm run compile
-```
-
-### build
-
-将src目录下的es6源文件转换成es5，打包成单个js文件，便于在html种直接使用
-
-```bash
-npm run build
+export default defineConfig([
+  globalIgnores(['dist']),
+  {
+    files: ['**/*.{ts,tsx}'],
+    extends: [
+      // Other configs...
+      // Enable lint rules for React
+      reactX.configs['recommended-typescript'],
+      // Enable lint rules for React DOM
+      reactDom.configs.recommended,
+    ],
+    languageOptions: {
+      parserOptions: {
+        project: ['./tsconfig.node.json', './tsconfig.app.json'],
+        tsconfigRootDir: import.meta.dirname,
+      },
+      // other options...
+    },
+  },
+])
 ```
