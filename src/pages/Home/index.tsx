@@ -1,5 +1,5 @@
 import { Card, Typography } from 'antd'
-import { ToolOutlined } from '@ant-design/icons'
+import { LinkOutlined, ToolOutlined } from '@ant-design/icons'
 import { useNavigate } from 'react-router-dom'
 
 const { Title, Paragraph } = Typography
@@ -8,6 +8,8 @@ const tools = [
   { title: 'SQL 转 GORM Model', description: '将 MySQL / PostgreSQL 建表语句转换为 GORM Model 定义', href: '/sql-to-gorm' },
   { title: '随机字符串生成', description: '可配置字符范围，生成指定长度的随机字符串', href: '/random-string' },
 ]
+
+const EXTERNAL_MORE = 'https://it-tools.tech/'
 
 export default function Home() {
   const navigate = useNavigate()
@@ -38,6 +40,18 @@ export default function Home() {
             <Paragraph className="text-gray-500 mb-0">{tool.description}</Paragraph>
           </Card>
         ))}
+
+        <Card
+          hoverable
+          className="cursor-pointer border-dashed"
+          onClick={() => window.open(EXTERNAL_MORE, '_blank', 'noopener,noreferrer')}
+        >
+          <Title level={5} className="mb-1">
+            <LinkOutlined className="mr-1" />
+            更多工具
+          </Title>
+          <Paragraph className="text-gray-500 mb-0">浏览 it-tools.tech 上的更多在线工具</Paragraph>
+        </Card>
       </div>
     </div>
   )
