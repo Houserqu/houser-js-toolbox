@@ -4,7 +4,17 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>js-tools</title>
+    <title>JS Toolbox</title>
+    <!-- SPA redirect from 404.html for GitHub Pages -->
+    <script>
+      ;(function () {
+        var redirect = sessionStorage.getItem('spa-redirect')
+        if (redirect) {
+          sessionStorage.removeItem('spa-redirect')
+          history.replaceState(null, '', redirect)
+        }
+      })()
+    </script>
   </head>
   <body>
     <div id="root"></div>
