@@ -5,7 +5,7 @@ export interface ConvertResult {
 
 // ── Utilities ─────────────────────────────────────────────────────────────────
 
-function stripComments(sql: string): string {
+export function stripComments(sql: string): string {
   // Block comments /* ... */
   sql = sql.replace(/\/\*[\s\S]*?\*\//g, ' ')
   // Line comments -- ...
@@ -13,7 +13,7 @@ function stripComments(sql: string): string {
   return sql
 }
 
-function snakeToPascal(name: string): string {
+export function snakeToPascal(name: string): string {
   return name
     .split('_')
     .filter(s => s.length > 0)
@@ -27,14 +27,14 @@ function unquoteIdentifier(s: string): string {
 
 // ── SQL Structure Extraction ───────────────────────────────────────────────────
 
-function extractTableName(sql: string): string | null {
+export function extractTableName(sql: string): string | null {
   const m = sql.match(
     /CREATE\s+TABLE\s+(?:IF\s+NOT\s+EXISTS\s+)?(?:[`"[\]]?[\w$]+[`"[\]]?\s*\.\s*)?[`"[\]]?(\w+)[`"[\]]?\s*\(/i,
   )
   return m ? m[1] : null
 }
 
-function extractTableBody(sql: string): string | null {
+export function extractTableBody(sql: string): string | null {
   const start = sql.indexOf('(')
   if (start === -1) return null
   let depth = 0
@@ -53,7 +53,7 @@ function extractTableBody(sql: string): string | null {
 }
 
 /** Split column/constraint definitions by top-level commas, respecting parentheses and strings. */
-function splitColumnDefs(body: string): string[] {
+export function splitColumnDefs(body: string): string[] {
   const parts: string[] = []
   let depth = 0
   let inString = false
@@ -97,7 +97,7 @@ function splitColumnDefs(body: string): string[] {
 }
 
 /** Collect column names declared in table-level PRIMARY KEY constraints. */
-function extractPrimaryKeys(defs: string[]): Set<string> {
+export function extractPrimaryKeys(defs: string[]): Set<string> {
   const pks = new Set<string>()
   for (const def of defs) {
     const m = def.trim().match(/^PRIMARY\s+KEY\s*\(([^)]+)\)/i)
@@ -176,7 +176,7 @@ function sqlTypeToGoType(rawType: string, colName: string): string {
 
 // ── Column Definition Parsing ─────────────────────────────────────────────────
 
-interface ColumnDef {
+export interface ColumnDef {
   name: string
   rawType: string
   goType: string
@@ -186,7 +186,7 @@ interface ColumnDef {
   comment?: string
 }
 
-function parseColumnDef(line: string, primaryKeys: Set<string>): ColumnDef | null {
+export function parseColumnDef(line: string, primaryKeys: Set<string>): ColumnDef | null {
   const trimmed = line.trim()
   if (!trimmed) return null
 
