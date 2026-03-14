@@ -2,6 +2,7 @@ import { createBrowserRouter } from 'react-router-dom'
 import MainLayout from '@/layouts/MainLayout'
 import Home from '@/pages/Home'
 import SqlToGorm from '@/pages/SqlToGorm'
+import RandomString from '@/pages/RandomString'
 
 const router = createBrowserRouter(
   [
@@ -16,6 +17,10 @@ const router = createBrowserRouter(
         {
           path: 'sql-to-gorm',
           element: <SqlToGorm />,
+        },
+        {
+          path: 'random-string',
+          element: <RandomString />,
         },
       ],
     },
