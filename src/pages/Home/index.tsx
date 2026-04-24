@@ -7,6 +7,7 @@ const { Title, Paragraph } = Typography
 const tools = [
   { title: 'SQL 转 GORM Model', description: '将 MySQL / PostgreSQL 建表语句转换为 GORM Model 定义', href: '/sql-to-gorm' },
   { title: '随机字符串生成', description: '可配置字符范围，生成指定长度的随机字符串', href: '/random-string' },
+  { title: 'JSON & 类型转换', description: 'JSON / TypeScript / Go Struct 互转', href: '/type-converter' },
 ]
 
 const EXTERNAL_MORE = 'https://it-tools.tech/'

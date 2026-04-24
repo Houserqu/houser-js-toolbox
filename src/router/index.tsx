@@ -3,6 +3,7 @@ import MainLayout from '@/layouts/MainLayout'
 import Home from '@/pages/Home'
 import SqlToGorm from '@/pages/SqlToGorm'
 import RandomString from '@/pages/RandomString'
+import TypeConverter from '@/pages/TypeConverter'
 
 const router = createBrowserRouter(
   [
@@ -21,6 +22,10 @@ const router = createBrowserRouter(
         {
           path: 'random-string',
           element: <RandomString />,
+        },
+        {
+          path: 'type-converter',
+          element: <TypeConverter />,
         },
       ],
     },
